@@ -10,8 +10,6 @@ import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.Instant;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -83,6 +81,12 @@ public class AnonymousController {
     @GetMapping("/purchase/{id}")
     public RestResponse<PurchaseInfo> findPurchase(@PathVariable UUID id) {
         PurchaseInfo dto = anonymousService.findPurchase(id);
+        return RestResponse.success(dto);
+    }
+
+    @GetMapping("/purchase/account/{accountId}")
+    public RestResponse<List<PurchaseInfo>> findAllPurchaseByAccountId(@PathVariable UUID accountId) {
+        List<PurchaseInfo> dto = anonymousService.findAllPurchaseByAccountId(accountId);
         return RestResponse.success(dto);
     }
 

@@ -20,6 +20,9 @@ public class PurchaseCreateForm extends AbstractJsonSerializable {
     private String checkOut;
 
     @NotNull
+    private String roomType;
+
+    @NotNull
     private int total;
 
     @NotNull

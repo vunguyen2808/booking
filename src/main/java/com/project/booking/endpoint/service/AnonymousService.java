@@ -83,6 +83,11 @@ public class AnonymousService {
         return PurchaseInfo.from(entity);
     }
 
+    public List<PurchaseInfo> findAllPurchaseByAccountId(UUID id) {
+        List<PurchaseEntity> list = purchaseEntityService.findAllPurchaseByAccountId(id);
+        return list.stream().map(PurchaseInfo::from).toList();
+    }
+
     public List<PurchaseInfo> findAllPurchase() {
         List<PurchaseEntity> list = purchaseEntityService.findAll();
         return list.stream().map(PurchaseInfo::from).toList();

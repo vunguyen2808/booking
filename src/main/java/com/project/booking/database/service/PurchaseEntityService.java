@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.List;
 import java.util.UUID;
 
 @Slf4j
@@ -33,6 +34,7 @@ public class PurchaseEntityService extends AbstractEntityService<PurchaseEntityR
         PurchaseEntity entity = new PurchaseEntity();
         entity.setCheckIn(checkIn);
         entity.setCheckOut(checkOut);
+        entity.setRoomType(form.getRoomType());
         entity.setTotal(form.getTotal());
         entity.setAccountId(form.getAccountId());
         /*entity.setRoom(roomEntityRepository.findById(form.getRoomId())
@@ -52,5 +54,9 @@ public class PurchaseEntityService extends AbstractEntityService<PurchaseEntityR
 
         repository.delete(entity);
         return entity;
+    }
+
+    public List<PurchaseEntity> findAllPurchaseByAccountId(UUID id) {
+        return repository.findByAccountId(id);
     }
 }

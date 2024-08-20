@@ -24,6 +24,9 @@ public class PurchaseEntity extends AbstractAuditingEntity {
     @Column(name = "check_out")
     private Instant checkOut;
 
+    @Column(name = "room_type")
+    private String roomType;
+
     @Column(name = "total")
     private int total;
 

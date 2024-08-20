@@ -14,6 +14,7 @@ public class PurchaseInfo extends AbstractJsonSerializable {
     private UUID id;
     private Instant checkIn;
     private Instant checkOut;
+    private String roomType;
     private int total;
     private UUID account;
     /*private RoomInfo room;*/
@@ -26,6 +27,7 @@ public class PurchaseInfo extends AbstractJsonSerializable {
         info.setId(entity.getId());
         info.setCheckIn(entity.getCheckIn());
         info.setCheckOut(entity.getCheckOut());
+        info.setRoomType(entity.getRoomType());
         info.setTotal(entity.getTotal());
         info.setAccount(entity.getAccountId());
         /*info.setRoom(RoomInfo.from(entity.getRoom()));*/
