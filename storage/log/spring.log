@@ -776,3 +776,49 @@ This generated password is for development use only. Your security configuration
 2024-08-20T00:46:11.676+07:00  INFO 43048 --- [booking] [RMI TCP Connection(5)-172.19.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-08-20T00:46:11.676+07:00  INFO 43048 --- [booking] [RMI TCP Connection(5)-172.19.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2024-08-20T00:46:11.677+07:00  INFO 43048 --- [booking] [RMI TCP Connection(5)-172.19.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2024-08-20T21:42:07.912+07:00  INFO 42428 --- [booking] [main] com.project.booking.BookingApplication   : Starting BookingApplication using Java 21.0.2 with PID 42428 (E:\source\freelance\booking\target\classes started by Vu Nguyen in E:\source\freelance\booking)
+2024-08-20T21:42:07.913+07:00  INFO 42428 --- [booking] [main] com.project.booking.BookingApplication   : The following 1 profile is active: "local"
+2024-08-20T21:42:08.328+07:00  INFO 42428 --- [booking] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-20T21:42:08.355+07:00  INFO 42428 --- [booking] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 2 JPA repository interfaces.
+2024-08-20T21:42:09.042+07:00  INFO 42428 --- [booking] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-08-20T21:42:09.048+07:00  INFO 42428 --- [booking] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-20T21:42:09.049+07:00  INFO 42428 --- [booking] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-20T21:42:09.083+07:00  INFO 42428 --- [booking] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-20T21:42:09.083+07:00  INFO 42428 --- [booking] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1139 ms
+2024-08-20T21:42:09.275+07:00  INFO 42428 --- [booking] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-20T21:42:09.317+07:00  INFO 42428 --- [booking] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-08-20T21:42:09.343+07:00  INFO 42428 --- [booking] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-08-20T21:42:09.527+07:00  INFO 42428 --- [booking] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-20T21:42:09.544+07:00  INFO 42428 --- [booking] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-08-20T21:42:09.644+07:00  INFO 42428 --- [booking] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@57617a75
+2024-08-20T21:42:09.645+07:00  INFO 42428 --- [booking] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-08-20T21:42:09.676+07:00  WARN 42428 --- [booking] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-20T21:42:10.191+07:00  INFO 42428 --- [booking] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-20T21:42:10.242+07:00  INFO 42428 --- [booking] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-20T21:42:10.319+07:00  INFO 42428 --- [booking] [main] c.p.booking.application.AppProperties    : {"url":"http://localhost:8080","name":"booking","version":"0.0.1-SNAPSHOT.20240820","storage":"file:///E:/source/freelance/booking/storage/"}
+2024-08-20T21:42:10.322+07:00  INFO 42428 --- [booking] [main] com.project.booking.BookingApplication   : 
+----------------------------------------------------------
+	Application: 	booking-v0.0.1-SNAPSHOT.20240820
+	Local URL: 		http://172.19.0.1:8080/
+	Deploy URL: 	http://localhost:8080
+	MergeImageForm: E:\source\freelance\booking\storage
+	Profile(s): 	[local]
+----------------------------------------------------------
+2024-08-20T21:42:10.324+07:00  INFO 42428 --- [booking] [main] c.p.b.application.OpenAPIConfiguration   : Initialized OpenAPIConfiguration
+2024-08-20T21:42:10.746+07:00  INFO 42428 --- [booking] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2024-08-20T21:42:10.805+07:00  WARN 42428 --- [booking] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 3ebc594f-3b45-4ffc-ab59-f17895708c11
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-08-20T21:42:10.810+07:00  INFO 42428 --- [booking] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2024-08-20T21:42:11.361+07:00  INFO 42428 --- [booking] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2024-08-20T21:42:11.368+07:00  INFO 42428 --- [booking] [main] com.project.booking.BookingApplication   : Started BookingApplication in 3.723 seconds (process running for 4.404)
+2024-08-20T21:42:11.754+07:00  INFO 42428 --- [booking] [RMI TCP Connection(1)-172.19.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-20T21:42:11.754+07:00  INFO 42428 --- [booking] [RMI TCP Connection(1)-172.19.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-08-20T21:42:11.755+07:00  INFO 42428 --- [booking] [RMI TCP Connection(1)-172.19.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-08-20T21:42:59.400+07:00  INFO 42428 --- [booking] [http-nio-8080-exec-1] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 119 ms
+2024-08-20T22:20:47.473+07:00  INFO 42428 --- [booking] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-20T22:20:47.476+07:00  INFO 42428 --- [booking] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-08-20T22:20:47.479+07:00  INFO 42428 --- [booking] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.UUID;
 
 @Slf4j
@@ -25,9 +27,15 @@ public class PurchaseEntityService extends AbstractEntityService<PurchaseEntityR
 
     @Transactional
     public PurchaseEntity create(PurchaseCreateForm form) {
+        LocalDate localCheckIn = LocalDate.parse(form.getCheckIn());
+        Instant checkIn = localCheckIn.atStartOfDay(ZoneId.of("UTC")).toInstant();
+
+        LocalDate localCheckOut = LocalDate.parse(form.getCheckOut());
+        Instant checkOut = localCheckOut.atStartOfDay(ZoneId.of("UTC")).toInstant();
+
         PurchaseEntity entity = new PurchaseEntity();
-        entity.setCheckIn(form.getCheckIn());
-        entity.setCheckOut(form.getCheckOut());
+        entity.setCheckIn(checkIn);
+        entity.setCheckOut(checkOut);
         entity.setTotal(form.getTotal());
         entity.setAccount(accountEntityRepository.findById(form.getAccountId())
                 .orElseThrow(() -> RestException.badRequest("Account not found")));

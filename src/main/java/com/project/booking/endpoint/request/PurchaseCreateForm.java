@@ -14,10 +14,10 @@ import java.util.UUID;
 @Builder
 public class PurchaseCreateForm extends AbstractJsonSerializable {
     @NotNull
-    private Instant checkIn;
+    private String checkIn;
 
     @NotNull
-    private Instant checkOut;
+    private String checkOut;
 
     @NotNull
     private int total;

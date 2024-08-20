@@ -1,7 +1,7 @@
 package com.project.booking.endpoint.controller;
 
+import com.project.booking.endpoint.request.AccountCreateUpdateForm;
 import com.project.booking.endpoint.request.PurchaseCreateForm;
-import com.project.booking.endpoint.request.RoomCreateUpdateForm;
 import com.project.booking.endpoint.response.AccountInfo;
 import com.project.booking.endpoint.response.PurchaseInfo;
 import com.project.booking.endpoint.service.AnonymousService;
@@ -10,6 +10,8 @@ import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -57,6 +59,12 @@ public class AnonymousController {
     @GetMapping("/account/{id}")
     public RestResponse<AccountInfo> infoAccount(@PathVariable UUID id) {
         AccountInfo dto = anonymousService.infoAccount(id);
+        return RestResponse.success(dto);
+    }
+
+    @PutMapping("/account/{id}")
+    public RestResponse<AccountInfo> changePassword(@PathVariable UUID id, AccountCreateUpdateForm form) {
+        AccountInfo dto = anonymousService.changePassword(id, form);
         return RestResponse.success(dto);
     }
 

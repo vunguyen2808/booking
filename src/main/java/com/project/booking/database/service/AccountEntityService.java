@@ -1,10 +1,8 @@
 package com.project.booking.database.service;
 
-import com.project.booking.database.constant.ActiveStatus;
-import com.project.booking.database.constant.SecurityRole;
 import com.project.booking.database.entity.AccountEntity;
 import com.project.booking.database.repository.AccountEntityRepository;
-import com.project.booking.endpoint.request.AccountCreateForm;
+import com.project.booking.endpoint.request.AccountCreateUpdateForm;
 import com.project.booking.util.AbstractEntityService;
 import com.project.booking.util.RestException;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +24,7 @@ public class AccountEntityService extends AbstractEntityService<AccountEntityRep
     }
 
     @Transactional
-    public AccountEntity create(AccountCreateForm form) {
+    public AccountEntity create(AccountCreateUpdateForm form) {
         if (repository.existsByLogin(form.getLogin()))
             throw RestException.badRequest("User login already exists");
 
@@ -39,6 +37,20 @@ public class AccountEntityService extends AbstractEntityService<AccountEntityRep
         AccountEntity entity = new AccountEntity();
         entity.setLogin(form.getLogin());
         entity.setEmail(form.getEmail());
+        entity.setName(form.getName());
+        entity.setPassword(passwordEncoder.encode(form.getPassword()));
+        repository.save(entity);
+
+        return entity;
+    }
+
+    @Transactional
+    public AccountEntity update(UUID id, AccountCreateUpdateForm form) {
+        AccountEntity entity = repository.findById(id).orElseThrow(() -> RestException.badRequest("Account not found"));
+
+        if (form.getPassword() == null)
+            form.setPassword(UUID.randomUUID().toString());
+
         entity.setName(form.getName());
         entity.setPassword(passwordEncoder.encode(form.getPassword()));
         repository.save(entity);
