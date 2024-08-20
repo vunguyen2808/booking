@@ -1,7 +1,6 @@
 package com.project.booking.database.service;
 
 import com.project.booking.database.entity.PurchaseEntity;
-import com.project.booking.database.repository.AccountEntityRepository;
 import com.project.booking.database.repository.PurchaseEntityRepository;
 import com.project.booking.endpoint.request.PurchaseCreateForm;
 import com.project.booking.util.AbstractEntityService;
@@ -18,11 +17,9 @@ import java.util.UUID;
 @Slf4j
 @Service
 public class PurchaseEntityService extends AbstractEntityService<PurchaseEntityRepository, PurchaseEntity, UUID> {
-    private final AccountEntityRepository accountEntityRepository;
 
-    public PurchaseEntityService(PurchaseEntityRepository repository, AccountEntityRepository accountEntityRepository) {
+    public PurchaseEntityService(PurchaseEntityRepository repository) {
         super(repository);
-        this.accountEntityRepository = accountEntityRepository;
     }
 
     @Transactional
@@ -37,8 +34,7 @@ public class PurchaseEntityService extends AbstractEntityService<PurchaseEntityR
         entity.setCheckIn(checkIn);
         entity.setCheckOut(checkOut);
         entity.setTotal(form.getTotal());
-        entity.setAccount(accountEntityRepository.findById(form.getAccountId())
-                .orElseThrow(() -> RestException.badRequest("Account not found")));
+        entity.setAccountId(form.getAccountId());
         /*entity.setRoom(roomEntityRepository.findById(form.getRoomId())
                 .orElseThrow(() -> RestException.badRequest("Room not found")));*/
         repository.save(entity);

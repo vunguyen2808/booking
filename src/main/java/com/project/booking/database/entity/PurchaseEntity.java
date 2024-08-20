@@ -27,9 +27,8 @@ public class PurchaseEntity extends AbstractAuditingEntity {
     @Column(name = "total")
     private int total;
 
-    @OneToOne(fetch = FetchType.EAGER, orphanRemoval = true)
-    @JoinColumn(name = "account_id")
-    private AccountEntity account;
+    @Column(name = "accountId")
+    private UUID accountId;
 
     /*@OneToOne(fetch = FetchType.EAGER, orphanRemoval = true)
     @JoinColumn(name = "room_id")
