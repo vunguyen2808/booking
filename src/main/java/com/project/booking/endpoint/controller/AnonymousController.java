@@ -1,6 +1,6 @@
 package com.project.booking.endpoint.controller;
 
-import com.project.booking.endpoint.request.AccountCreateUpdateForm;
+import com.project.booking.endpoint.request.AccountPwUpdateForm;
 import com.project.booking.endpoint.request.PurchaseCreateForm;
 import com.project.booking.endpoint.response.AccountInfo;
 import com.project.booking.endpoint.response.PurchaseInfo;
@@ -61,7 +61,7 @@ public class AnonymousController {
     }
 
     @PutMapping("/account/{id}")
-    public RestResponse<AccountInfo> changePassword(@PathVariable UUID id, AccountCreateUpdateForm form) {
+    public RestResponse<AccountInfo> changePassword(@PathVariable UUID id, AccountPwUpdateForm form) {
         AccountInfo dto = anonymousService.changePassword(id, form);
         return RestResponse.success(dto);
     }

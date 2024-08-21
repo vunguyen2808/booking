@@ -4,7 +4,7 @@ import com.project.booking.database.entity.AccountEntity;
 import com.project.booking.database.entity.PurchaseEntity;
 import com.project.booking.database.service.AccountEntityService;
 import com.project.booking.database.service.PurchaseEntityService;
-import com.project.booking.endpoint.request.AccountCreateUpdateForm;
+import com.project.booking.endpoint.request.AccountPwUpdateForm;
 import com.project.booking.endpoint.request.PurchaseCreateForm;
 import com.project.booking.endpoint.response.AccountInfo;
 import com.project.booking.endpoint.response.PurchaseInfo;
@@ -33,7 +33,7 @@ public class AnonymousService {
         return AccountInfo.from(entity);
     }
 
-    public AccountInfo changePassword(UUID id, AccountCreateUpdateForm form) {
+    public AccountInfo changePassword(UUID id, AccountPwUpdateForm form) {
         AccountEntity entity = accountEntityService.update(id, form);
         return AccountInfo.from(entity);
     }

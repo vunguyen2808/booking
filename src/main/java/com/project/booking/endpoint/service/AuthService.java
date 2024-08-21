@@ -2,7 +2,7 @@ package com.project.booking.endpoint.service;
 
 import com.project.booking.database.entity.AccountEntity;
 import com.project.booking.database.service.AccountEntityService;
-import com.project.booking.endpoint.request.AccountCreateUpdateForm;
+import com.project.booking.endpoint.request.AccountCreateForm;
 import com.project.booking.endpoint.request.AccountLoginForm;
 import com.project.booking.endpoint.request.AccountRegisterForm;
 import com.project.booking.endpoint.response.AccountInfo;
@@ -26,7 +26,7 @@ public class AuthService {
         AccountEntity account = accountEntityService.findByLoginAndEmail(form.getLogin(), form.getEmail())
                 .orElse(null);
         if (account == null) {
-            account = accountEntityService.create(AccountCreateUpdateForm.builder()
+            account = accountEntityService.create(AccountCreateForm.builder()
                     .login(form.getLogin())
                     .email(form.getEmail())
                     .name(form.getName())
